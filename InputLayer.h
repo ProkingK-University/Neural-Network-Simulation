@@ -11,7 +11,7 @@ public:
 
     void printLayer();
     void clearLayer();
-    void setsInputs(double* inputs);
+    void setInputs(double* inputs);
     void setNumInputs(int numInputs);
 
     int getNumberInputs();
