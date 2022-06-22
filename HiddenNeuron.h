@@ -12,13 +12,13 @@ private:
 
     int numWeights;
 public:
-    HiddenNeuron();
+    HiddenNeuron(int numWeights, double* weights);
 
     void activateReLU();
     void activateSigmoid();
     void setValue(double value);
-    void forward(InputLayer* inputLayer);
     void forward(HiddenLayer* prevLayer);
+    void forward(InputLayer* inputLayer);
 
     double getValue();
 
