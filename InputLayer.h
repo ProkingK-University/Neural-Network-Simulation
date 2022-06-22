@@ -14,7 +14,7 @@ public:
     void setInputs(double* inputs);
     void setNumInputs(int numInputs);
 
-    int getNumberInputs();
+    int getNumInputs();
     double* getInputs();
 
     ~InputLayer();

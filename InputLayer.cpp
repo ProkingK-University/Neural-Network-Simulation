@@ -45,7 +45,7 @@ void InputLayer::setNumInputs(int numInputs)
     this->numInputs = numInputs;
 }
 
-int InputLayer::getNumberInputs()
+int InputLayer::getNumInputs()
 {
     return numInputs;
 }
@@ -61,9 +61,9 @@ InputLayer::~InputLayer()
     {
         for (int i = 0; i < numInputs; i++) 
         {
-            this->inputs[i] = NULL;
+            inputs[i] = NULL;
         }
-        delete [] this->inputs;
+        delete [] inputs;
     }
 }
 
