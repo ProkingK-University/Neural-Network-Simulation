@@ -10,11 +10,11 @@
 class HiddenLayer
 {
 private:
-    int numNueurons;
+    int numNeurons;
     std::string activation;
     HiddenNeuron** neurons;
 public:;
-    HiddenLayer();
+    HiddenLayer(int numNeurons, HiddenNeuron** neurons, std::string activation);
 
     void printLayer();
     void clearLayer();
