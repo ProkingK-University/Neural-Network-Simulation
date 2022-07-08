@@ -1,4 +1,5 @@
 #include "OutputLayer.h"
+#include "HiddenNeuron.h"
 
 OutputLayer::OutputLayer(int numWeights, double* weights) : numWeights(numWeights)
 {
@@ -44,7 +45,7 @@ OutputLayer::~OutputLayer()
 {
     for (int i = 0; i < numWeights; i++) 
     {
-        weights[i] = NULL;
+        weights[i] = 0;
     }
     delete [] weights;
 }

@@ -1,4 +1,5 @@
 #include "HiddenLayer.h"
+#include "HiddenNeuron.h"
 
 HiddenLayer::HiddenLayer(int numNeurons, HiddenNeuron** neurons, std::string activation) : numNeurons(numNeurons), activation(activation)
 {
@@ -26,29 +27,6 @@ void HiddenLayer::setNumNeurons(int numNeurons)
     this->numNeurons = numNeurons;
 }
 
-void HiddenLayer::forward(InputLayer* inputLayer)
-{
-    for (int i = 0; i < numNeurons; i++)
-    {
-        neurons[i]->forward(inputLayer);
-    }
-    
-    if (activation == "relu")
-    {
-        for (int i = 0; i < numNeurons; i++)
-        {
-            neurons[i]->activateReLU();
-        }
-    }
-    else if (activation == "sigmoid")
-    {
-        for (int i = 0; i < numNeurons; i++)
-        {
-            neurons[i]->activateSigmoid();
-        }
-    }
-}
-
 void HiddenLayer::forward(HiddenLayer* prevLayer)
 {
     for (int i = 0; i < numNeurons; i++)
@@ -70,7 +48,29 @@ void HiddenLayer::forward(HiddenLayer* prevLayer)
             neurons[i]->activateSigmoid();
         }
     }
+}
+
+void HiddenLayer::forward(InputLayer* inputLayer)
+{
+    for (int i = 0; i < numNeurons; i++)
+    {
+        neurons[i]->forward(inputLayer);
+    }
     
+    if (activation == "relu")
+    {
+        for (int i = 0; i < numNeurons; i++)
+        {
+            neurons[i]->activateReLU();
+        }
+    }
+    else if (activation == "sigmoid")
+    {
+        for (int i = 0; i < numNeurons; i++)
+        {
+            neurons[i]->activateSigmoid();
+        }
+    }
 }
 
 void HiddenLayer::setNeurons(HiddenNeuron** neurons)

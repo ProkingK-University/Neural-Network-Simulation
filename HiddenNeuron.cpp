@@ -1,5 +1,6 @@
 #include <math.h>
 
+#include "HiddenNeuron.h"
 #include "HiddenLayer.h"
 
 HiddenNeuron::HiddenNeuron(int numWeights, double* weights) : numWeights(numWeights)
@@ -17,7 +18,7 @@ void HiddenNeuron::activateReLU()
 
 void HiddenNeuron::activateSigmoid()
 {
-    value = 1 / 1 + exp(-value);
+    value = 1 / (1 + exp(-value));
 }
 
 void HiddenNeuron::setValue(double value)
@@ -60,7 +61,7 @@ HiddenNeuron::~HiddenNeuron()
 {
     for (int i = 0; i < numWeights; i++) 
     {
-        weights[i] = NULL;
+        weights[i] = 0;
     }
     delete [] weights;
 }
