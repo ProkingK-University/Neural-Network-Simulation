@@ -29,7 +29,7 @@ void InputLayer::setInputs(double* inputs)
     {
         for (int i = 0; i < numInputs; i++) 
         {
-            this->inputs[i] = NULL;
+            this->inputs[i] = 0;
         }
         delete [] this->inputs;
     }
@@ -58,7 +58,7 @@ InputLayer::~InputLayer()
     {
         for (int i = 0; i < numInputs; i++) 
         {
-            inputs[i] = NULL;
+            inputs[i] = 0;
         }
         delete [] inputs;
     }
