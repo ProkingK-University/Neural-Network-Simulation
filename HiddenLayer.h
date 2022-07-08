@@ -1,11 +1,11 @@
-#ifndef HIDDEN_LAYER_H
-#define HIDDEN_LAYER_H
+#ifndef HIDDENLAYER_H
+#define HIDDENLAYER_H
 
 #include <iostream>
 
 #include "InputLayer.h"
-#include "HiddenLayer.h"
-#include "HiddenNeuron.h"
+
+class HiddenNeuron;
 
 class HiddenLayer
 {
@@ -19,8 +19,8 @@ public:;
     void printLayer();
     void clearLayer();
     void setNumNeurons(int numNeurons);
-    void forward(InputLayer* inputLayer);
     void forward(HiddenLayer* prevLayer);
+    void forward(InputLayer* inputLayer);
     void setNeurons(HiddenNeuron** neurons);
 
     int getNumNeurons();

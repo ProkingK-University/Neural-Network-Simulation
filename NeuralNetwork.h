@@ -1,8 +1,6 @@
-#ifndef NEURAL_NETWORK_H
-#define NEURAL_NETWORK_H
+#ifndef NEURALNETWORK_H
+#define NEURALNETWORK_H
 
-#include "InputLayer.h"
-#include "HiddenLayer.h"
 #include "OutputLayer.h"
 
 class NeuralNetwork
@@ -11,10 +9,10 @@ private:
     int numHiddenLayers;
 
     InputLayer* inputLayer;
-    HiddenLayer* hiddenLayer;
+    HiddenLayer** hiddenLayers;
     OutputLayer* outputLayer;
 public:
-    NeuralNetwork();
+    NeuralNetwork(std::string filePath);
 
     void printNetwork();
     void clearNetwork();

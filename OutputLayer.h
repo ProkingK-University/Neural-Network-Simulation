@@ -1,5 +1,5 @@
-#ifndef OUTER_LAYER_H
-#define OUTER_LAYER_H
+#ifndef OUTERLAYER_H
+#define OUTERLAYER_H
 
 #include "HiddenLayer.h"
 

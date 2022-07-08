@@ -1,8 +1,11 @@
-#ifndef HIDDEN_NEURON_H
-#define HIDDEN_NEURON_H
+#ifndef HIDDENNEURON_H
+#define HIDDENNEURON_H
+
+#include <iostream>
 
 #include "InputLayer.h"
-#include "HiddenLayer.h"
+
+class HiddenLayer;
 
 class HiddenNeuron
 {
