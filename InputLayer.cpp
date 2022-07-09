@@ -12,6 +12,8 @@ void InputLayer::printLayer()
     std::cout<< "i:" << numInputs <<std::endl;
 }
 
+//Clears all the vaules in the input array
+
 void InputLayer::clearLayer()
 {
     if (inputs != NULL)
@@ -22,6 +24,8 @@ void InputLayer::clearLayer()
         }
     }
 }
+
+//Sets all the vaules in the input array
 
 void InputLayer::setInputs(double* inputs)
 {

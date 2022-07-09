@@ -2,6 +2,8 @@
 
 int main()
 {
+    // Enter input into the array 
+
     double* input = new double[3];
     input[0] = 1.2;
     input[1] = 3.4;

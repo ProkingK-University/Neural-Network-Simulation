@@ -23,6 +23,8 @@ void OutputLayer::setsOutputValue(double outputValue)
     this->outputValue = outputValue;
 }
 
+//Calls forward function for every neuron in the layer and sums all of them for the final value
+
 void OutputLayer::forward(HiddenLayer* lastHiddenLayer)
 {
     double total = 0;

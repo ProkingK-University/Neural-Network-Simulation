@@ -10,11 +10,15 @@ HiddenNeuron::HiddenNeuron(int numWeights, double* weights) : numWeights(numWeig
     this->weights = weights;
 }
 
+//Calculation for ReLU activation
+
 void HiddenNeuron::activateReLU()
 {
     
     value = std::max(0.0, value);
 }
+
+//Calculation for Sigmoid activation
 
 void HiddenNeuron::activateSigmoid()
 {
@@ -25,6 +29,8 @@ void HiddenNeuron::setValue(double value)
 {
     this->value = value;
 }
+
+//Calculation for value of neuron
 
 void HiddenNeuron::forward(HiddenLayer* prevLayer)
 {
@@ -38,6 +44,8 @@ void HiddenNeuron::forward(HiddenLayer* prevLayer)
      
     value = total;
 }
+
+//Calculation for value of neuron in the first hidden layer
 
 void HiddenNeuron::forward(InputLayer* inputLayer)
 {

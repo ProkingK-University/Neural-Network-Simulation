@@ -20,6 +20,8 @@ NeuralNetwork::NeuralNetwork(std::string filePath)
         std::cout<< "File failed to open" <<std::endl;
     }
 
+    //Reads the first 2 lines of the file and sets the variable
+
     for (int i = 0; i < 2; i++)
     {
         getline(file, line);
@@ -46,8 +48,11 @@ NeuralNetwork::NeuralNetwork(std::string filePath)
 
     hiddenLayers = new HiddenLayer*[numHiddenLayers];
 
+    //Iterates through all hidden layers and instantiates them
+
     for (int i = 0; i < numHiddenLayers; i++)
     {
+        //Read line to get activation type
         getline(file, line);
 
         std::stringstream ss(line);
@@ -63,6 +68,7 @@ NeuralNetwork::NeuralNetwork(std::string filePath)
 
         if (activation == "relu")
         {
+            //Read line to get number of neurons in layer
             std::stringstream ss(line);
 
             for (int i = 0; i < 2; i++)
@@ -72,6 +78,8 @@ NeuralNetwork::NeuralNetwork(std::string filePath)
             
             numOfNeurons = std::stoi(data);
             neurons = new HiddenNeuron*[numOfNeurons];
+
+            //Read line to get weights for all neurons
 
             for (int j = 0; j < numOfNeurons; j++)
             {
@@ -107,6 +115,8 @@ NeuralNetwork::NeuralNetwork(std::string filePath)
                     neurons[j] = new HiddenNeuron(numOfWeights, wieghtArray);
                 }
             }
+
+            //Instantiates the hidden layer
 
             hiddenLayers[i] = new HiddenLayer(numOfNeurons, neurons, "relu");
         }
@@ -160,6 +170,8 @@ NeuralNetwork::NeuralNetwork(std::string filePath)
         }
     }
     
+    //Read the informaton of the output layer and instantiate output layer
+
     getline(file, line);
     getline(file, line);
     std::stringstream ss(line);
@@ -180,6 +192,8 @@ NeuralNetwork::NeuralNetwork(std::string filePath)
     file.close();
 }
 
+//Call the printLayer function for each layer to print the network
+
 void NeuralNetwork::printNetwork()
 {
     inputLayer->printLayer();
@@ -192,6 +206,8 @@ void NeuralNetwork::printNetwork()
     outputLayer->printLayer();
 }
 
+//Call the clearLayer function for each layer to clear the network
+
 void NeuralNetwork::clearNetwork()
 {
     inputLayer->clearLayer();
@@ -203,6 +219,8 @@ void NeuralNetwork::clearNetwork()
 
     outputLayer->clearLayer();
 }
+
+//Call the forward function for each layer to output final value
 
 double NeuralNetwork::forward(double* input)
 {

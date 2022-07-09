@@ -6,6 +6,8 @@ HiddenLayer::HiddenLayer(int numNeurons, HiddenNeuron** neurons, std::string act
     this->neurons = neurons;
 }
 
+//Prints out information about hidden layer
+
 void HiddenLayer::printLayer()
 {
     std::cout<< "h:" << numNeurons << ":" << activation <<std::endl;
@@ -26,6 +28,8 @@ void HiddenLayer::setNumNeurons(int numNeurons)
 {
     this->numNeurons = numNeurons;
 }
+
+//Calls forward function for every neuron in the layer and performs ReLU or Sigmoid calculation
 
 void HiddenLayer::forward(HiddenLayer* prevLayer)
 {
@@ -49,6 +53,8 @@ void HiddenLayer::forward(HiddenLayer* prevLayer)
         }
     }
 }
+
+//Does the same as the forward function but for the first hidden layer
 
 void HiddenLayer::forward(InputLayer* inputLayer)
 {
